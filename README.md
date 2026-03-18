@@ -1,7 +1,7 @@
-# How Algorithms Get Stuck
+# How Algorithms Get Stuck 
 ### Why small recommendation distortions can derail rational learning
 
-This repository contains the code for the master's thesis: **Robustness of Rational Learning Under Distorted Exposure**: Informational Lock-In in a Bandit Model of Biased Sampling
+This repo contains the code for the thesis: **Robustness of Rational Learning Under Distorted Exposure**: Informational Lock-In in a Bandit Model of Biased Sampling
 Author: Nadine Daum
 
 ## Quick Start
