@@ -4,7 +4,7 @@ from src.simulation import run_episode
 
 
 def main() -> None:
-    # Single-condition benchmark to see outcome frequencies quickly.
+    # Single-condition benchmark to see outcome frequencies quickly 
     n_runs = 100
     outcomes = []
 
@@ -20,7 +20,7 @@ def main() -> None:
 
     counts = Counter(outcomes)
 
-    # Raw counts first, then normalized shares for interpretation.
+    # Raw counts first, then normalized shares for interpretation 
     print("Outcome counts:")
     for outcome, count in counts.items():
         print(f"{outcome}: {count}")

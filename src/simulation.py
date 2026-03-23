@@ -43,6 +43,7 @@ def run_episode(
     for t in range(horizon):
         # Baseline learner belief over which arm is currently best.
         baseline_probs = learner.sample_preferences()
+        
         # External exposure mechanism shifts probabilities toward arm 1.
         distorted_probs = apply_exposure_bias(
             baseline_probs=baseline_probs,

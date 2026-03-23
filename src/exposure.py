@@ -1,6 +1,6 @@
 import numpy as np
 
-
+ 
 def apply_exposure_bias(
     baseline_probs: np.ndarray,
     delta: float,

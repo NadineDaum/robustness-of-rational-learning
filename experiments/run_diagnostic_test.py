@@ -11,7 +11,7 @@ def main() -> None:
     convergence threshold.
     """
     for seed in range(10):
-        # Same parameters, different seeds: isolate stochastic trajectory effects.
+        # Same parameters, different seeds: isolate stochastic trajectory effects
         result = run_episode(
             mu_0=0.6,
             mu_1=0.5,
@@ -32,7 +32,7 @@ def main() -> None:
             tail_fraction=0.2,
         )
 
-        # If both tails are moderate, "ambiguous" is doing its job.
+        # If both tails are moderate, "ambiguous" is doing its job 
         print(
             f"seed={seed:2d} | outcome={result.outcome:20s} | "
             f"optimal_tail={optimal_tail:.3f} | inferior_tail={inferior_tail:.3f}"

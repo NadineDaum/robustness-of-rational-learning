@@ -21,3 +21,4 @@ class BernoulliBandit:
     def optimal_arm(self) -> int:
         """Return the arm with higher expected reward (ties go to arm 1)."""
         return 0 if self.mu_0 > self.mu_1 else 1
+    

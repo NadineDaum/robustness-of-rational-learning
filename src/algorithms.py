@@ -46,3 +46,4 @@ class ThompsonSampling:
         """Update Beta posterior for the selected arm using a Bernoulli reward."""
         self.alpha[arm] += reward
         self.beta[arm] += (1 - reward)
+    
