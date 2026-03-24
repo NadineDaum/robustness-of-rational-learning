@@ -1,10 +1,11 @@
-# How Algorithms Get Stuck
+# Robustness of Rational Learning Under Distorted Exposure
+### Informational Lock-In in a Bandit Model of Biased Sampling
 ### or why small recommendation distortions can derail our rational learning
 
-This repo contains the code for my thesis: **Robustness of Rational Learning Under Distorted Exposure**: Informational Lock-In in a Bandit Model of Biased Sampling (Author: Nadine Daum)
+This repo contains the code for my master's thesis. Author: Nadine Daum
 
 ## Quick Start
-Use Python 3.10+.
+Use Python 3.10+
 
 ```bash
 python -m venv .venv
@@ -20,7 +21,7 @@ python -c "import numpy, pandas, matplotlib; print('env OK')"
 python -m experiments.run_fragility_map
 ```
 
-2. Create thesis figures (PDF only):
+2. Create thesis figures:
 
 ```bash
 python -m experiments.plot_optimal_map
@@ -38,4 +39,4 @@ Outputs:
 - `results/data/`: generated CSV files
 - `results/figures/`: generated PDF figures
 
-Optional diagnostics: `python -m experiments.run_batch_test`, `python -m experiments.run_diagnostic_test`, `python -m experiments.run_minigrid_test`.
+Optional diagnostics: `python -m experiments.run_batch_test`, `python -m experiments.run_diagnostic_test`, `python -m experiments.run_minigrid_test`
