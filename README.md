@@ -1,8 +1,8 @@
 # Robustness of Rational Learning Under Distorted Exposure
-### Informational Lock-In in a Bandit Model of Biased Sampling
-### or why small recommendation distortions can derail our rational learning
+## Informational Lock-In in a Bandit Model of Biased Sampling
+This repo contains the code for my master's thesis. Let's see why small recommendation distortions can derail our rational learning.
 
-This repo contains the code for my master's thesis. Author: Nadine Daum
+Author: Nadine Daum
 
 ## Quick Start
 Use Python 3.10+
