@@ -1,0 +1,8 @@
+algorithm,dominant_regime,count
+epsilon_greedy,ambiguous,60
+epsilon_greedy,optimal,40
+epsilon_greedy,lock_in,20
+thompson_sampling,ambiguous,60
+thompson_sampling,optimal,60
+ucb1,ambiguous,78
+ucb1,optimal,42
