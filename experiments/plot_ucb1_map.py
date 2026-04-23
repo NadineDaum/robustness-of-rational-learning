@@ -11,7 +11,7 @@ OUT_OPTIMAL = OUTPUT_DIR / "fragility_map_ucb1_optimal.pdf"
 OUT_LOCKIN = OUTPUT_DIR / "fragility_map_ucb1_lockin.pdf"
 
 
-def _plot_heatmap(data: pd.DataFrame, value_col: str, title: str, out_file: Path) -> None:
+def _plot_heatmap(data: pd.DataFrame, value_col: str, cbar_label: str, out_file: Path) -> None:
     pivot = data.pivot(index="gap", columns="delta", values=value_col)
     pivot = pivot.sort_index(axis=0).sort_index(axis=1)
 
@@ -36,15 +36,13 @@ def _plot_heatmap(data: pd.DataFrame, value_col: str, title: str, out_file: Path
 
     ax.set_xlabel("Exposure distortion ($\\delta$)")
     ax.set_ylabel("Reward gap ($\\Delta$)")
-    ax.set_title(title)
-
     ax.set_xticks(np.arange(-0.5, len(x_vals), 1), minor=True)
     ax.set_yticks(np.arange(-0.5, len(y_vals), 1), minor=True)
     ax.grid(which="minor", color="white", linestyle="-", linewidth=0.35, alpha=0.3)
     ax.tick_params(which="minor", bottom=False, left=False)
 
     cbar = fig.colorbar(im, ax=ax)
-    cbar.set_label("Probability")
+    cbar.set_label(cbar_label)
 
     fig.tight_layout()
     fig.savefig(out_file, bbox_inches="tight")
@@ -58,13 +56,13 @@ def main() -> None:
     _plot_heatmap(
         data=data,
         value_col="p_optimal",
-        title="UCB1: Probability of optimal convergence",
+        cbar_label="Convergence probability",
         out_file=OUT_OPTIMAL,
     )
     _plot_heatmap(
         data=data,
         value_col="p_lock_in",
-        title="UCB1: Probability of informational lock-in",
+        cbar_label="Lock-in probability",
         out_file=OUT_LOCKIN,
     )
 

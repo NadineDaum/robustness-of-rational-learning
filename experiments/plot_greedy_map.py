@@ -15,7 +15,6 @@ OUT_LOCKIN = OUTPUT_DIR / "fragility_map_epsgreedy_lockin.pdf"
 def _plot_heatmap(
     data: pd.DataFrame,
     value_col: str,
-    title: str,
     cbar_label: str,
     out_file: Path,
 ) -> None:
@@ -43,8 +42,6 @@ def _plot_heatmap(
 
     ax.set_xlabel("Exposure distortion ($\\delta$)")
     ax.set_ylabel("Reward gap ($\\Delta$)")
-    ax.set_title(title)
-
     ax.set_xticks(np.arange(-0.5, len(x_vals), 1), minor=True)
     ax.set_yticks(np.arange(-0.5, len(y_vals), 1), minor=True)
     ax.grid(which="minor", color="white", linestyle="-", linewidth=0.35, alpha=0.35)
@@ -65,7 +62,6 @@ def main() -> None:
     _plot_heatmap(
         data=data,
         value_col="p_optimal",
-        title="Epsilon-greedy: Probability of optimal convergence",
         cbar_label="Convergence probability",
         out_file=OUT_OPTIMAL,
     )
@@ -73,7 +69,6 @@ def main() -> None:
     _plot_heatmap(
         data=data,
         value_col="p_lock_in",
-        title="Epsilon-greedy: Probability of informational lock-in",
         cbar_label="Lock-in probability",
         out_file=OUT_LOCKIN,
     )

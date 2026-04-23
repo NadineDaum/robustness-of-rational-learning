@@ -25,7 +25,6 @@ def _draw_heatmap(
     ax: plt.Axes,
     data: pd.DataFrame,
     value_col: str,
-    title: str,
     show_x_label: bool,
     show_y_label: bool,
 ) -> AxesImage:
@@ -55,8 +54,6 @@ def _draw_heatmap(
     else:
         ax.set_ylabel("")
 
-    ax.set_title(title)
-
     ax.set_xticks(np.arange(-0.5, len(x_vals), 1), minor=True)
     ax.set_yticks(np.arange(-0.5, len(y_vals), 1), minor=True)
     ax.grid(which="minor", color="white", linestyle="-", linewidth=0.35, alpha=0.3)
@@ -80,11 +77,10 @@ def main() -> None:
         constrained_layout=True,
     )
 
-    im = _draw_heatmap(
+    im_left = _draw_heatmap(
         ax=axes[0, 0],
         data=ucb1,
         value_col="p_optimal",
-        title="UCB1: Probability of optimal convergence",
         show_x_label=False,
         show_y_label=True,
     )
@@ -93,7 +89,6 @@ def main() -> None:
         ax=axes[0, 1],
         data=ucb1,
         value_col="p_lock_in",
-        title="UCB1: Probability of informational lock-in",
         show_x_label=False,
         show_y_label=False,
     )
@@ -102,22 +97,23 @@ def main() -> None:
         ax=axes[1, 0],
         data=eps,
         value_col="p_optimal",
-        title="Epsilon-greedy: Probability of optimal convergence",
         show_x_label=True,
         show_y_label=True,
     )
 
-    _draw_heatmap(
+    im_right = _draw_heatmap(
         ax=axes[1, 1],
         data=eps,
         value_col="p_lock_in",
-        title="Epsilon-greedy: Probability of informational lock-in",
         show_x_label=True,
         show_y_label=False,
     )
 
-    cbar = fig.colorbar(im, ax=axes.ravel().tolist(), shrink=0.95)
-    cbar.set_label("Probability")
+    cbar_left = fig.colorbar(im_left, ax=axes[:, 0], shrink=0.95)
+    cbar_left.set_label("Convergence probability")
+
+    cbar_right = fig.colorbar(im_right, ax=axes[:, 1], shrink=0.95)
+    cbar_right.set_label("Lock-in probability")
 
     fig.savefig(OUTPUT_FILE, bbox_inches="tight")
     plt.close(fig)
