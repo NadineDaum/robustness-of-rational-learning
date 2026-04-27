@@ -1,4 +1,5 @@
 # Robustness of Rational Learning Under Distorted Exposure
+**Author: Nadine Daum** 
 
 This repo contains the simulation code for my master’s thesis: **Robustness of Rational Learning Under Distorted Exposure: Informational Lock-In in a Two-Source Bandit Model**.
 
